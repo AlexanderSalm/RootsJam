@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController instance;
+
     public float speed;
     public float speedMod;
     public float rotationSpeed;
@@ -13,6 +15,8 @@ public class CameraController : MonoBehaviour
     public float rotationSmoothness;
 
     private GameObject cameraPivot;
+    private GameObject cameraObj;
+    private Camera cameraScript;
     private Vector2 rawMovement;
     private float rawRotation;
 
@@ -24,7 +28,11 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         cameraPivot = transform.GetChild(0).gameObject;
+        cameraObj = cameraPivot.transform.GetChild(0).gameObject;
+        cameraScript = cameraObj.GetComponent<Camera>();
 
         targetPosition = transform.position;
         targetRotation = cameraPivot.transform.localEulerAngles;
@@ -65,5 +73,9 @@ public class CameraController : MonoBehaviour
 
     public void OnCameraSpeedup(InputValue value){
         speedupHeld = value.Get<float>() == 1.0f;
+    }
+
+    public Camera GetCamera(){
+        return cameraScript;
     }
 }
