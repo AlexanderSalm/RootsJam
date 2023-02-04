@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71023be88d115cf83a0ad42c8491e0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlaceable: {fileID: 850223012264472756, guid: aa7e2f73825afad8abe52691bffd0a60, type: 3}
 --- !u!114 &474440877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 474440872}
   rightStickSpeed: 1
+  groundRaycastSuccess: 0
 --- !u!1 &1613289950
 GameObject:
   m_ObjectHideFlags: 0

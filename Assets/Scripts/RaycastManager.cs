@@ -8,10 +8,14 @@ public class RaycastManager : MonoBehaviour
     public static RaycastManager instance;
 
     public GameObject cursor;
+
     public float rightStickSpeed;
 
-    private bool groundRaycastSuccess;
-    private RaycastHit groundHit;
+    public bool groundRaycastSuccess;
+    public RaycastHit groundHit;
+
+    public bool gardenItemSuccess;
+    public RaycastHit gardenItemHit;
 
     private Vector2 rawRightStick;
     private Vector2 mouseOffset;
@@ -34,6 +38,11 @@ public class RaycastManager : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * 250.0f);
         int layerMask = 1 << 6;
         groundRaycastSuccess = Physics.Raycast(ray, out groundHit, 250, layerMask);
+
+        ray = CameraController.instance.GetCamera().ScreenPointToRay(new Vector2(cursor.transform.position.x, cursor.transform.position.y));
+        Debug.DrawRay(ray.origin, ray.direction * 250.0f);
+        layerMask = 1 << 7;
+        gardenItemSuccess = Physics.Raycast(ray, out gardenItemHit, 250, layerMask);
 
         if(clicking){
             clicking = false;
