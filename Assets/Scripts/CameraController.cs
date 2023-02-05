@@ -14,6 +14,9 @@ public class CameraController : MonoBehaviour
     public float cameraSmoothness;
     public float rotationSmoothness;
 
+    public Vector2 cameraMax;
+    public Vector2 cameraMin;
+
     private GameObject cameraPivot;
     private GameObject cameraObj;
     private Camera cameraScript;
@@ -52,6 +55,7 @@ public class CameraController : MonoBehaviour
         movementVector = new Vector3(movementVector.z * xFactor + movementVector.x * zFactor, 0, movementVector.z * zFactor + -movementVector.x * xFactor);
         
         targetPosition += movementVector * speed * Time.deltaTime * speedupFactor;
+        targetPosition = new Vector3(Mathf.Max(Mathf.Min(targetPosition.x, cameraMax.x), cameraMin.x), targetPosition.y, Mathf.Max(Mathf.Min(targetPosition.z, cameraMax.y), cameraMin.y));
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, cameraSmoothness * Time.deltaTime);
 

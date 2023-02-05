@@ -40,12 +40,16 @@ public class CursorController : MonoBehaviour
             clickingDown = false;
             placeableIndex--;
             if(placeableIndex == -1) placeableIndex = allPlaceable.Count - 1;
+
+            SelectedInformationController.instance.RefreshSelected(allPlaceable[placeableIndex]);
         }
         
         if(clickingUp){
             clickingUp = false;
             placeableIndex++;
             if(placeableIndex == allPlaceable.Count) placeableIndex = 0;
+
+            SelectedInformationController.instance.RefreshSelected(allPlaceable[placeableIndex]);
         }
 
         if(clickingDelete){
@@ -98,6 +102,8 @@ public class CursorController : MonoBehaviour
     public CursorController Initalize(){
         if(!initalized){
             anim = GetComponent<Animator>();
+
+            SelectedInformationController.instance.RefreshSelected(allPlaceable[placeableIndex]);
         }
 
         initalized = true;

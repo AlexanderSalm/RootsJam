@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GardenItem : MonoBehaviour
 {
+    public string itemName;
     private Outline outline;
 
     private bool initalized;
