@@ -27,6 +27,8 @@ public class CameraController : MonoBehaviour
     private Vector3 targetRotation;
     private Vector3 currentRotation;
 
+    private float timeSinceMoved = 0.0f;
+
     private bool speedupHeld;
     // Start is called before the first frame update
     void Start()
@@ -65,6 +67,14 @@ public class CameraController : MonoBehaviour
         targetRotation += new Vector3(0, rawRotation, 0) * rotationSpeed * Time.deltaTime * speedupFactor;
         currentRotation = Vector3.Lerp(currentRotation, targetRotation, Time.deltaTime * rotationSmoothness);
         cameraPivot.transform.localEulerAngles = currentRotation;
+
+        if(rawMovement != new Vector2(0, 0)){
+            timeSinceMoved += Time.deltaTime;
+        } else {
+            timeSinceMoved -= Time.deltaTime;
+        }
+
+        timeSinceMoved = Mathf.Max(Mathf.Min(timeSinceMoved, 1.0f), 0.0f);
     }
 
     public void OnMovement(InputValue value){
@@ -81,5 +91,9 @@ public class CameraController : MonoBehaviour
 
     public Camera GetCamera(){
         return cameraScript;
+    }
+
+    public float GetTravelingSpeed(){
+        return timeSinceMoved;
     }
 }
