@@ -8,6 +8,9 @@ public class CursorController : MonoBehaviour
 {
     public static CursorController instance;
 
+    public AudioClip create;
+    public AudioClip remove;
+
     public List<string> allPlaceable;
 
     public int placeableIndex = 0;
@@ -24,6 +27,8 @@ public class CursorController : MonoBehaviour
     private bool clickingUp = false;
     private bool clickingDown = false;
     private bool clickingDelete = false;
+
+    private AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +80,8 @@ public class CursorController : MonoBehaviour
             else {
                 if (currentlySelected != null) currentlySelected.Deselect();
                 tryingToSpawn = allPlaceable[placeableIndex];
+                source.clip = create;
+                source.Play();
             }
         }
     }
@@ -83,6 +90,8 @@ public class CursorController : MonoBehaviour
         Initalize();
         if(currentlySelected == null) return;
         tryingToDelete = currentlySelected.gameObject;
+        source.clip = remove;
+        source.Play();
 
     }
     
@@ -96,12 +105,12 @@ public class CursorController : MonoBehaviour
 
     public void OnDelete(InputValue value){
         clickingDelete = value.Get<float>() == 1.0f;
-        Debug.Log("delete clicked");
     }
 
     public CursorController Initalize(){
         if(!initalized){
             anim = GetComponent<Animator>();
+            source = GetComponent<AudioSource>();
 
             SelectedInformationController.instance.RefreshSelected(allPlaceable[placeableIndex]);
         }

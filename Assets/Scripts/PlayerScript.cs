@@ -6,6 +6,7 @@ using Mirror;
 public class PlayerScript : NetworkBehaviour
 {
     public static PlayerScript instance;
+
     void Start(){
         instance = this;
     }
@@ -24,7 +25,6 @@ public class PlayerScript : NetworkBehaviour
 
     [Command(requiresAuthority = false)]
     public void CmdSpawnItem(string target, Vector3 point){
-        Debug.Log(CursorController.instance.tryingToSpawn);
         GameObject prefab = Resources.Load<GameObject>(target);
         Debug.Log(prefab);
         GameObject g = Instantiate(prefab);

@@ -8,6 +8,8 @@ public class GardenItem : MonoBehaviour
     private Outline outline;
 
     private bool initalized;
+
+    private AudioSource source;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +32,9 @@ public class GardenItem : MonoBehaviour
         }
 
         return this;
+    }
+
+    void OnDestroy(){
+
     }
 }
