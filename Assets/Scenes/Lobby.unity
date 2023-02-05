@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Port: 8888
+  Port: 42069
   DualMode: 1
   NoDelay: 1
   Interval: 10
@@ -388,6 +388,7 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 850223012264472756, guid: aa7e2f73825afad8abe52691bffd0a60, type: 3}
   - {fileID: 1830041403272184034, guid: 60b0fce0350214323971bcc9876f1888, type: 3}
+  - {fileID: 3089919527567012048, guid: 3f3b0797dff25b70aad360a090cb5e4d, type: 3}
   timeInterpolationGui: 0
 --- !u!4 &1974771550
 Transform:
