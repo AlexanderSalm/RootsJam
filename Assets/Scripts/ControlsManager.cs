@@ -40,4 +40,12 @@ public class ControlsManager : MonoBehaviour
     public void OnMousePosition(InputValue value){
         RaycastManager.instance.OnMousePosition(value);
     }
+
+    public void OnSwitchDecorUp(InputValue value){
+        CursorController.instance.OnSwitchDecorUp(value);
+    }
+
+    public void OnSwitchDecorDown(InputValue value){
+        CursorController.instance.OnSwitchDecorDown(value);
+    }
 }
