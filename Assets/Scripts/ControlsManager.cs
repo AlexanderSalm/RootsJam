@@ -52,4 +52,8 @@ public class ControlsManager : MonoBehaviour
     public void OnDelete(InputValue value){
         CursorController.instance.OnDelete(value);
     }
+
+    public void OnLeaveGame(InputValue value){
+        NetworkManagerGarden.instance.Disconnect();
+    }
 }

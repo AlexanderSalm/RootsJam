@@ -40,5 +40,15 @@ public class NetworkManagerGarden : NetworkManager
         // call base functionality (actually destroys the player)
         base.OnServerDisconnect(conn);
     }
+
+    // Called by UI element NetworkAddressInput.OnValueChanged
+    public void SetHostname(string hostname)
+    {
+        networkAddress = hostname;
+    }
+
+    public void Disconnect(){
+        NetworkManager.singleton.StopHost();
+    }
 }
 
