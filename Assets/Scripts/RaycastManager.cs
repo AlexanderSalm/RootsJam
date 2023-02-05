@@ -32,7 +32,9 @@ public class RaycastManager : MonoBehaviour
     void Update()
     {
         mouseOffset += rawRightStick * rightStickSpeed * Time.deltaTime * new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
-        cursor.transform.position = new Vector3(mousePosition.x, mousePosition.y, 0) + new Vector3(mouseOffset.x, mouseOffset.y, 0);
+        Vector3 realPosition = new Vector3(mousePosition.x, mousePosition.y, 0) + new Vector3(mouseOffset.x, mouseOffset.y, 0);
+
+        cursor.transform.position = realPosition;
 
         Ray ray = CameraController.instance.GetCamera().ScreenPointToRay(new Vector2(cursor.transform.position.x, cursor.transform.position.y));
         Debug.DrawRay(ray.origin, ray.direction * 250.0f);

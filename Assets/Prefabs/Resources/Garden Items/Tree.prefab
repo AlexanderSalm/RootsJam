@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8170965661598431281}
   - component: {fileID: 671406672699261670}
   - component: {fileID: 4484242652399498}
+  - component: {fileID: 8105279107003983186}
   m_Layer: 7
   m_Name: Tree
   m_TagString: Untagged
@@ -103,7 +104,7 @@ MonoBehaviour:
   clientAuthority: 0
   syncPosition: 1
   syncRotation: 0
-  syncScale: 1
+  syncScale: 0
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
@@ -127,6 +128,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectFind: Main Camera
   mask: {x: 1, y: 1, z: 1}
+--- !u!95 &8105279107003983186
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089919527567012048}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43762de323d9e8870bf31c9e7746b20e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &3541465896408772212
 GameObject:
   m_ObjectHideFlags: 0
