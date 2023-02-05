@@ -48,4 +48,8 @@ public class ControlsManager : MonoBehaviour
     public void OnSwitchDecorDown(InputValue value){
         CursorController.instance.OnSwitchDecorDown(value);
     }
+
+    public void OnDelete(InputValue value){
+        CursorController.instance.OnDelete(value);
+    }
 }

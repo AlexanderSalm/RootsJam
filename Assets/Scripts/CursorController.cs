@@ -17,11 +17,13 @@ public class CursorController : MonoBehaviour
     private Animator anim;
 
     public string tryingToSpawn = "";
+    public GameObject tryingToDelete;
 
     private bool initalized = false;
 
     private bool clickingUp = false;
     private bool clickingDown = false;
+    private bool clickingDelete = false;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,11 @@ public class CursorController : MonoBehaviour
             placeableIndex++;
             if(placeableIndex == allPlaceable.Count) placeableIndex = 0;
         }
+
+        if(clickingDelete){
+            clickingDelete = false;
+            Delete();
+        }
     }
 
     public void Click(){
@@ -53,7 +60,7 @@ public class CursorController : MonoBehaviour
 
         if(RaycastManager.instance.gardenItemSuccess){
             if(currentlySelected != null) currentlySelected.Deselect();
-            currentlySelected = RaycastManager.instance.gardenItemHit.collider.gameObject.GetComponent<GardenItem>();
+            currentlySelected = RaycastManager.instance.gardenItemHit.collider.gameObject.transform.parent.gameObject.GetComponent<GardenItem>();
             currentlySelected.Select();
         }
         else if(RaycastManager.instance.groundRaycastSuccess){
@@ -67,6 +74,13 @@ public class CursorController : MonoBehaviour
             }
         }
     }
+
+    public void Delete(){
+        Initalize();
+        if(currentlySelected == null) return;
+        tryingToDelete = currentlySelected.gameObject;
+
+    }
     
     public void OnSwitchDecorUp(InputValue value){
         clickingUp = value.Get<float>() == 1.0f;
@@ -74,6 +88,11 @@ public class CursorController : MonoBehaviour
 
     public void OnSwitchDecorDown(InputValue value){
         clickingDown = value.Get<float>() == 1.0f;
+    }
+
+    public void OnDelete(InputValue value){
+        clickingDelete = value.Get<float>() == 1.0f;
+        Debug.Log("delete clicked");
     }
 
     public CursorController Initalize(){

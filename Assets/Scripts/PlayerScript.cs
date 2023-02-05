@@ -15,6 +15,11 @@ public class PlayerScript : NetworkBehaviour
             CmdSpawnItem(CursorController.instance.tryingToSpawn, RaycastManager.instance.groundHit.point);
             CursorController.instance.tryingToSpawn = "";
         }
+
+        if(CursorController.instance.tryingToDelete != null){
+            CmdDeleteItem(CursorController.instance.tryingToDelete);
+            CursorController.instance.tryingToDelete = null;
+        }
     }
 
     [Command(requiresAuthority = false)]
@@ -24,8 +29,12 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log(prefab);
         GameObject g = Instantiate(prefab);
         g.transform.position = point;
-        g.GetComponent<GardenItem>().Initalize().Select();
 
         NetworkServer.Spawn(g);
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdDeleteItem(GameObject item){
+        NetworkServer.Destroy(item);
     }
 }
