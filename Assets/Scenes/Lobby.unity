@@ -829,8 +829,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 1974771549}
+        m_TargetAssemblyTypeName: NetworkManagerGarden, Assembly-CSharp
         m_MethodName: SetHostname
         m_Mode: 0
         m_Arguments:
