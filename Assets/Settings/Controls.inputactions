@@ -61,7 +61,7 @@
                 },
                 {
                     "name": "SwitchDecorUp",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "fe3172c8-3172-4b52-bab4-d67cf9614327",
                     "expectedControlType": "",
                     "processors": "",
@@ -70,7 +70,7 @@
                 },
                 {
                     "name": "SwitchDecorDown",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "1bd74d1c-19ab-4b89-be46-8b1723b4fa32",
                     "expectedControlType": "",
                     "processors": "",
@@ -374,6 +374,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f48b1143-af1c-4b0a-80b8-cd17bf120e45",
+                    "path": "<Mouse>/scroll/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchDecorUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a39e7c41-6ae3-401b-9f74-0907a1d19981",
                     "path": "<Keyboard>/rightBracket",
                     "interactions": "",
@@ -387,6 +398,17 @@
                     "name": "",
                     "id": "7455e034-0eb9-44a6-a5b4-7c9d3d7ef4ec",
                     "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchDecorDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17fc78b4-f91e-4599-a9d7-3396c9eb6ebf",
+                    "path": "<Mouse>/scroll/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

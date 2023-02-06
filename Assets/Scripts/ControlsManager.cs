@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class ControlsManager : MonoBehaviour
 {
+    private float scrollDelta;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,5 +57,21 @@ public class ControlsManager : MonoBehaviour
 
     public void OnLeaveGame(InputValue value){
         NetworkManagerGarden.instance.Disconnect();
+    }
+
+    public void OnScroll(InputValue value){
+        scrollDelta += value.Get<float>();
+
+        Debug.Log(scrollDelta);
+
+        if(scrollDelta <= -1){
+            CursorController.instance.OnSwitchDecorDown(value);
+            scrollDelta = 0;
+        }
+
+        if(scrollDelta >= 1){
+            CursorController.instance.OnSwitchDecorUp(value);
+            scrollDelta = 0;
+        }
     }
 }

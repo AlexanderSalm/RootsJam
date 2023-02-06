@@ -96,11 +96,11 @@ public class CursorController : MonoBehaviour
     }
     
     public void OnSwitchDecorUp(InputValue value){
-        clickingUp = value.Get<float>() == 1.0f;
+        clickingUp = value.Get<float>() != 0.0f;
     }
 
     public void OnSwitchDecorDown(InputValue value){
-        clickingDown = value.Get<float>() == 1.0f;
+        clickingDown = value.Get<float>() != 0.0f;
     }
 
     public void OnDelete(InputValue value){
